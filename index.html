@@ -465,6 +465,48 @@
             --rotation: 0deg;
         }
 
+        /* Special Uncle Sam Card */
+        .chaos-card.uncle-sam-card {
+            background: rgba(255, 255, 0, 0.1);
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 350px;
+        }
+
+        .uncle-sam-image {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 0, 0.3));
+        }
+
+        .uncle-sam-text {
+            font-size: 2rem;
+            font-weight: 900;
+            text-align: center;
+            background: linear-gradient(45deg, #ffff00, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            line-height: 1.2;
+            margin: 1rem;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { 
+                filter: drop-shadow(0 0 10px rgba(255, 255, 0, 0.5));
+            }
+            50% { 
+                filter: drop-shadow(0 0 20px rgba(255, 255, 0, 1));
+            }
+        }
+
         .chaos-card::before {
             content: '';
             position: absolute;
@@ -1327,11 +1369,9 @@
         </div>
 
         <div class="chaos-grid">
-            <div class="chaos-card">
-                <div class="chaos-rank">#1</div>
-                <div class="chaos-name">moonboy_92</div>
-                <div class="chaos-performance positive">+342.8%</div>
-                <div class="chaos-badge">absolute chad</div>
+            <div class="chaos-card uncle-sam-card">
+                <img src="uncle-sam-meme.png" alt="I want you" class="uncle-sam-image">
+                <div class="uncle-sam-text">I WANT YOU HERE</div>
             </div>
             <div class="chaos-card">
                 <div class="chaos-rank">#2</div>
