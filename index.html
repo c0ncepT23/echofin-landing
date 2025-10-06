@@ -520,6 +520,11 @@
             animation: border-rotate 3s linear infinite;
         }
 
+        /* Remove rotating border from Uncle Sam card */
+        .chaos-card.uncle-sam-card::before {
+            display: none;
+        }
+
         .chaos-card:nth-child(1) { --rotation: -2deg; animation-delay: 0s; }
         .chaos-card:nth-child(2) { --rotation: 3deg; animation-delay: 0.5s; }
         .chaos-card:nth-child(3) { --rotation: -1deg; animation-delay: 1s; }
