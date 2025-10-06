@@ -91,6 +91,12 @@
             z-index: 10;
         }
 
+        @media (max-width: 768px) {
+            .hero-section {
+                padding-top: 5rem;
+            }
+        }
+
         .glitch-wrapper {
             margin-bottom: 2rem;
             position: relative;
@@ -870,10 +876,18 @@
             .logo-header {
                 top: 15px;
                 left: 15px;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+            }
+
+            /* Hide logo when scrolled on mobile */
+            .logo-header.hidden-mobile {
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
             }
 
             .logo-svg {
-                width: 150px;
+                width: 120px;
                 height: auto;
             }
         }
@@ -1568,6 +1582,8 @@
 
         // LOGO CLICK - Scroll to top
         const logoLink = document.getElementById('logoLink');
+        const logoHeader = document.querySelector('.logo-header');
+        
         logoLink.addEventListener('click', (e) => {
             e.preventDefault();
             window.scrollTo({
@@ -1575,6 +1591,32 @@
                 behavior: 'smooth'
             });
         });
+
+        // HIDE LOGO ON MOBILE AFTER FIRST FOLD
+        function handleLogoVisibility() {
+            const isMobile = window.innerWidth <= 768;
+            
+            if (isMobile) {
+                const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+                const scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollPosition > heroBottom - 100) {
+                    logoHeader.classList.add('hidden-mobile');
+                } else {
+                    logoHeader.classList.remove('hidden-mobile');
+                }
+            } else {
+                // On desktop, always show logo
+                logoHeader.classList.remove('hidden-mobile');
+            }
+        }
+
+        // Listen to scroll on mobile
+        window.addEventListener('scroll', handleLogoVisibility);
+        window.addEventListener('resize', handleLogoVisibility);
+        
+        // Initial check
+        handleLogoVisibility();
     </script>
 </body>
 </html>
