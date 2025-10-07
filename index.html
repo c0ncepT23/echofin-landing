@@ -447,6 +447,7 @@
         .chaos-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 1fr;
             gap: 2rem;
             max-width: 1200px;
             width: 100%;
@@ -463,17 +464,16 @@
             animation: chaos-float 5s ease-in-out infinite;
             transform: rotate(var(--rotation));
             --rotation: 0deg;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         /* Special Uncle Sam Card */
         .chaos-card.uncle-sam-card {
             background: rgba(255, 255, 0, 0.1);
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            min-height: 350px;
         }
 
         .chaos-card.uncle-sam-card .chaos-rank {
@@ -858,6 +858,7 @@
 
             .chaos-grid {
                 grid-template-columns: 1fr;
+                grid-auto-rows: auto;
                 gap: 1.5rem;
             }
 
@@ -870,6 +871,7 @@
         @media (min-width: 769px) and (max-width: 1024px) {
             .chaos-grid {
                 grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 1fr;
                 gap: 1.5rem;
             }
         }
